@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Web-lab 17</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var vragen = new Array();
+            var antwoorden = new Array();
+            var gebruikerantwoord = new Array();
+            for(i=0; i <11; i++){
+                var getal1 = Math.floor(Math.random()*9+1);
+                var getal2 = Math.floor(Math.random()*20+1);
+                vragen[i] = getal1.toFixed(0) + " x " + getal2.toFixed(0);
+                antwoorden[i] = getal1 * getal2;
+                gebruikerantwoord[i] = 0;
+            }
+            function toets(index){
+                antwoord = prompt(vragen[index]);
+                gebruikerantwoord[index] = antwoord;
+                if(antwoord == antwoorden[index]){
+                    return("Correct")
+                }
+                else{
+                    return("Fout!")
+                }
+            }
+            var doorgaan = true;
+            var index = 0;
+            while(doorgaan){
+                index++;
+                resultaat = toets(index);
+                document.write(vragen[index] + " = " + gebruikerantwoord[index] + " is " + resultaat + "<br />");
+                doorgaan = confirm(resultaat + " Wil je doorgaan?");
+                if(index == 10) break;
+            }
+        </script>
+    </body>
+</html>

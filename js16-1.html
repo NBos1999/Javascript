@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JSopdracht 16</title>
+        <style>
+            td {
+                border: 1px solid black
+            }     
+        </style>
+    </head>
+    <body>
+        <h2>Gebruik van object constructor en prototype</h2>
+        <p id="demo"></p>
+        <script>
+            // de PERSOON object constructor functie:
+            function PERSOON(first, last, age, eye) {
+                this.voornaam = first;
+                this.achternaam = last;
+                this.leeftijd = age;
+                this.oogkleur = eye;
+            }
+            
+            // array persoon declareren voor het opslaan van instancies van object PERSOON
+            var persoon = new Array(); 
+            
+            // eerste twee elementen vullen met vaste gegevens
+            persoon[0] = new PERSOON("John", "Doe", 50, "blue");
+            persoon[1] = new PERSOON("Sally", "Rally", 48, "green"); 
+            
+            // demo hoe je de objecten uit het array kan benaderen. Let op de twee verschillende methoden
+            document.getElementById("demo").innerHTML =
+            "My father is " + persoon[0].leeftijd + ". My mother is " + persoon[1]["leeftijd"] + "<br>"; 
+            
+            //volgende array element vullen met ingetypte waarden
+                persoon.push( new PERSOON(
+                    prompt("voornaam"), 
+                    prompt("achternaam"), 
+                    parseInt(prompt("leeftijd")), 
+                    prompt("oogkleur")
+                    ));
+                
+            // van de laatst ingevoerde persoon alle properties tonen
+            var output = "<br>"
+            for(prop in persoon[2]){
+            output += "<br>" + prop + ": " + persoon[2][prop];
+            }
+            document.getElementById("demo").innerHTML += output + "<br><br>" 
+            
+            var output = "<table><tr>";
+            for(prop in persoon[0]){
+                output += " <td> " + prop + " </td> ";
+            }
+            output += "</tr>"
+               
+            for(i = 0; i<persoon.length; i++){  
+                output += "<tr>";
+               
+            for(prop in persoon[i]){
+                output += " <td> " + persoon[i][prop] + "</td>";
+            }
+                output += "</tr>"
+            }
+            document.getElementById("demo").innerHTML += output;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS11-2: uitslagen verkiezingen</title>
+    <style> 
+		table, td, th {border: 1px solid blue;}  
+		body {font-family:arial; color:blue;} 
+    </style>
+    <script>
+		var kieskring   = [" ","Groningen","Fryslân","Drenthe","Overijssel","Flevoland","Gelderland I","Gelderland II","Utrecht","Amsterdam","Noord Holland I","Noord Holland II","'s-Gravenhage","Rotterdam","Zuid Holland I","Zuid Holland II","Zeeland","Noord Brabant I","Noord Brabant II","Limburg","eilanden Bonaire"," Sint Eustatius en Saba"];
+		var partij      = [" ","VVD","PvdA","PVV","CDA","SP","GL","D66","CU","PvdD","50PLUS","SGP","Overige"];
+		var uitslag     = new Array(); 				// 1e-dimensie van array uitslag declareren 
+        
+		for (var k=1; k<kieskring.length; k++){      // lus om langs alle rijen met kieskringen te gaan
+			uitslag[k] = new Array();			    // per rij de 2e dimensie van array uitslag declareren
+			for (var p=1; p<partij.length; p++){     // binnen rij kieskring een lus om alle cellen per partij te gaan
+				uitslag[k][p] = 0;      		    //element vullen met waarde 0
+			}
+		}
+		
+		function kieskringen(){  					// toont de kieskringen 
+			var output ="<table><tr><th>Nr</th><th>Kieskring</th></tr>" // header rij
+			for (var k=1; k<kieskring.length;k++){	//  lus om langs de elementen van kieskringen te gaan
+				output +="<tr><td>"+k+"</td><td>"+kieskring[k]+"</td></tr>"; // cel met volgnummer en cel met kieskring
+			}
+			output+="</table>"
+			document.getElementById("output").innerHTML = output;
+		}
+		
+		function partijen(){  					// toont de partijen
+			var output ="<table><tr><th>Nr</th><th>Partij</th></tr>" // header rij
+			for (var p=1; p<partij.length;p++){	//  lus om langs de elementen van partijen te gaan
+				output +="<tr><td>"+p+"</td><td>"+partij[p]+"</td></tr>"; // cel met volgnummer en cel met partij
+			}
+			output+="</table>"
+			document.getElementById("output").innerHTML = output;
+		}
+		
+		function uitslagen(){
+			var output ="<table><tr><th>Uitslag</th>"
+			for (var p=1; p<partij.length;p++){	// bovenste rij toont partijen
+				 output +="<th>" + p + ". "+partij[p]+"</th>";
+			} 
+			output +="</tr>";			// einde bovenste rij	
+			for (var k=1; k<kieskring.length;k++){		// voor iedere kieskring komt een rij
+				output +="<tr><td><b>" + k + ". " +kieskring[k]+"</b></td>";  //eerste cel toont kieskring											
+				for (var p=1; p<partij.length;p++){ //op die zelfde rij lus met cellen met uitslag per partij 
+					output +="<td>"+uitslag[k][p]+"</td>"; // toont voor die kieskring en die partij de stemmen
+				} 
+				output +="</tr>";
+			}
+			output +="</table>";  				
+			document.getElementById("output").innerHTML = output;	
+		}
+		
+		function stemmen(){
+			uitslagen();
+			var kiesKring   = parseInt(prompt("typ nummer kieskring"));
+			var partij      = parseInt(prompt("typ nummer van partij"));
+			uitslag[kiesKring][partij]++; 
+			uitslagen();
+		}
+    </script>
+</head>
+
+<body>
+    <h2>  Verkiezingen</h2>
+    <button onClick="kieskringen()">toon kieskringen</button>&nbsp;
+    <button onClick="partijen()">toon partijen</button>&nbsp;
+    <button onClick="uitslagen()">toon uitslag</button>&nbsp;
+    <button onClick="stemmen()">stem uitbrengen</button>&nbsp;
+    <p id="output"></p>
+</body>
+</html>

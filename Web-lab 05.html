@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Web-lab 05</title>
+    </head>
+    <body>
+        <h3>Web-lab 05</h3>
+        <script type = "text/javascript">
+            var einddatum = prompt('Wat is de einddatum JJJJ-MM-DD?');
+            var deadline = new Date(einddatum);
+            document.write("<br />Deadline is: " + deadline);
+            var nu = Date.now();
+            var dag = 86400000;
+            var dagen = ((deadline - nu)/ dag);
+            document.write("<br />Nog: " + dagen.toFixed(0) + ' dagen te gaan!');
+        </script>
+    </body>
+</html>

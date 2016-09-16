@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Arrays en indexen</title>
+        <style>
+            body{font-family:verdana;}
+            #alles, #actief{color:red; border:1px solid black; padding:3px;}
+        </style>
+        <script>
+            var palet = ["rood","blauw","geel","groen","paars"]; // beginwaarden palet
+            var index = 0; // initieel is het eerste element actief
+            
+            function toonAlles(){ // toont alle kleuren van het palet
+                document.getElementById("alles").innerHTML = palet; // alle elementen achterelkaar
+            }
+        
+            function toonActief(){  // toont het element met de huidige waarde van de index
+                document.getElementById("actief").innerHTML = "nr. " + (index+1) + ": " +palet[index];
+            }
+        
+            function eerste() {  
+                index = 0;
+                toonActief();
+            }
+            
+            function laatste(){  
+                index = palet.length - 1;
+                toonActief();
+            }
+            
+            function volgende(){
+                if(index != palet.length - 1){
+                    index = index + 1;
+                }
+                else{
+                    index = 0;
+                }
+                toonActief();
+            }
+            
+            function vorige(){
+                if(index > 0){
+                    index = index - 1;
+                }
+                else{
+                    index = palet.length -1;
+                }
+                toonActief();
+            }
+            
+            function toevoegen(){
+                add = prompt("Typ een kleur in die je wilt toevoegen");
+                palet.push(add);
+                toonActief();
+                toonAlles();
+            }
+           
+            function verwijderen(){ 
+                palet.splice(index, 1);
+                toonActief();
+                toonAlles();
+            }
+            
+            function sorteerAZ(){
+                palet.sort();
+                toonActief();
+                toonAlles();
+            }
+            
+            function sorteerZA(){
+                palet.reverse();
+                toonActief();
+                toonAlles();
+            }	
+        </script>
+    </head>
+    <body onload="toonAlles(); toonActief()">
+        <h2>Arrays en indexen</h2>
+        <p>Samenstelling palet: <span id="alles"> </span> </p>
+        <p>De actieve kleur is: <span id="actief"> </span> </p>
+        <p>	Bladeren door de kleuren: 
+            <button onclick="eerste()">eerste</button>
+            <button onclick="volgende()">volgende</button>
+            <button onclick="vorige()">vorige</button>
+            <button onclick="laatste()">laatste</button>
+        </p>
+        <p>	Kleuren toevoegen en verwijderen: 
+            <button onclick="toevoegen()">Kleur toevoegen</button>
+            <button onclick="verwijderen()">Actieve kleur verwijderen</button><br>
+        </p>
+        <p>	Palet sorteren:
+            <button onclick="sorteerAZ()">Van a - z</button>
+            <button onclick="sorteerZA()">Van z - a</button><br>
+        </p>
+    </body>
+</html>

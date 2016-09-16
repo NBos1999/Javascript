@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>De for-lus</title>
+        <!-- Dit script: werkt met de for-lus 
+        Auteur: Niels Bos
+        -->
+    </head>
+    <body>
+        <script type="text/javascript">
+            for (x = 0; x < 3; x++){
+                document.writeln("<br />Dit is lus: " + x);
+            }
+            var weekdag = new Array();
+            weekdag[0] = "zondag";
+            weekdag[1] = "maandag";
+            weekdag[2] = "dinsdag";
+            weekdag[3] = "woensdag";
+            weekdag[4] = "donderdag";
+            weekdag[5] = "vrijdag";
+            weekdag[6] = "zaterdag";
+            for(x=0; x<7; x++){
+                document.write("<br />Element "+x+" is "+weekdag[x]);
+            }
+            for (x=1; x<6; x++){
+                document.write("<br /><br />Element "+x+" is "+weekdag[x]);
+            }
+            
+            var tekst = "<br />Hij lijkt een beetje op Nelson Mandela.";
+            lengte = tekst.length;
+            spaties = 0;
+            document.write("<br />");
+            for(x=0; x<lengte; x++){
+                teken = tekst.charAt(x);
+                document.write(teken);
+                if (teken == " "){
+                    spaties++;
+                }
+            }
+            document.write("<br>Tekst bevat "+spaties+" spaties<br />");
+            
+            function myFunction() {
+                output="";
+                var tekst = document.getElementById("invoer").value;
+                for(i=0;i<tekst.length;i++){
+                    if(tekst.charAt(i) !=" "){
+                        output+=tekst.charAt(i);
+                    }
+                }
+                document.getElementById("demo").innerHTML = ouput;
+            }
+            
+            a = 0;
+            for(x=0; x<lengte; x++){
+                teken = tekst.charAt(x);
+                document.write(teken);
+                if (teken == "a"){
+                    a++;
+                }
+            }
+            document.write("<br />Aantal a's: "+a);
+            
+            e = 0;
+            for(x=0; x<lengte; x++){
+                teken = tekst.charAt(x);
+                if (teken == "e"){
+                    e++;
+                }
+            }
+            document.write("<br />Aantal e's: "+e);
+            
+            i = 0;
+            for(x=0; x<lengte; x++){
+                teken = tekst.charAt(x);
+                if (teken == "i"){
+                    i++;
+                }
+            }
+            document.write("<br />Aantal i's: "+i);
+            
+            o = 0;
+            for(x=0; x<lengte; x++){
+                teken = tekst.charAt(x);
+                if (teken == "o"){
+                    o++;
+                }
+            }
+            document.write("<br />Aantal o's: "+o);
+            
+            u = 0;
+            for(x=0; x<lengte; x++){
+                teken = tekst.charAt(x);
+                if (teken == "u"){
+                    u++;
+                }
+            }
+            document.write("<br />Aantal u's: "+u);
+        </script>
+    </body>
+</html>

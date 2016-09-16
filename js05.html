@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #demo{color:2; font-size:40px; color:blue; font-family:verdana; }
+        </style>
+    </head>
+    <body>
+        <h1>Gebruiker om input vragen</h1>
+        Typ het eerste getal:<input type="number" id="getal1"><br><br>
+        Typ het tweede getal:<input type="number" id="getal2"><br><br>   
+        <button type="button" onClick="telop()">Tel de getallen op</button>
+        <p id="demo">Antwoord komt hier</p>  
+        <script>
+            function telop(){
+            var a = parseInt(document.getElementById("getal1").value);
+            var b = parseInt(document.getElementById("getal2").value);
+            var c = a+b;
+            document.getElementById("demo").innerHTML = a+"+"+b+"="+c;
+            }
+        </script>
+    </body>
+</html>

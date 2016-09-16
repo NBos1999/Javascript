@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>4-js-NielsBos</title>
+    <style>
+        h1{
+            text-align:center;
+        }
+        div#yolo{
+            margin-left:auto;
+            margin-right:auto;
+            width:600px;
+            border:10px solid;
+            background-color:black;
+        }
+        #foto{
+            float:left;
+        }
+        div#side{
+            position:relative;
+            left: +8px;
+            top: -1px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fotogalerij 1</h1>
+    <div id="yolo">
+        <img id="foto" src="1.jpg" width="500px" height="500px">
+    <div id="side">
+        <img src="1.jpg" width="100px" height="100px" onClick="document.getElementById('foto').src='1.jpg'" onMouseOver="this.style.cursor='pointer'">
+        <img src="2.jpg" width="100px" height="100px" onClick="document.getElementById('foto').src='2.jpg'" onMouseOver="this.style.cursor='pointer'">
+        <img src="3.jpg" width="100px" height="100px" onClick="document.getElementById('foto').src='3.jpg'" onMouseOver="this.style.cursor='pointer'">
+        <img src="4.jpg" width="100px" height="100px" onClick="document.getElementById('foto').src='4.jpg'" onMouseOver="this.style.cursor='pointer'">
+        <img src="5.jpg" width="100px" height="100px" onClick="document.getElementById('foto').src='5.jpg'" onMouseOver="this.style.cursor='pointer'">
+    </div>
+    </div>
+</body>
+</html>
